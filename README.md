@@ -15,7 +15,7 @@ Interface gráfica completa para gerenciar backups.
 #### Windows
 ```bash
 # Clone o repositório
-git clone https://github.com/NiceFeatures/Steam-Vault---Backup-e-Restaura-o-para-SteamTools.git
+git clone https://github.com/PedroMerlini/Steam-Vault---Backup-e-Restaura-o-para-SteamTools.git
 cd Steam-Vault---Backup-e-Restaura-o-para-SteamTools
 
 # Execute o launcher (instala Python automaticamente se necessário)
@@ -25,7 +25,7 @@ launcher.bat
 #### Linux
 ```bash
 # Clone o repositório
-git clone https://github.com/NiceFeatures/Steam-Vault---Backup-e-Restaura-o-para-SteamTools.git
+git clone https://github.com/PedroMerlini/Steam-Vault---Backup-e-Restaura-o-para-SteamTools.git
 cd Steam-Vault---Backup-e-Restaura-o-para-SteamTools
 
 # Dê permissão e execute
