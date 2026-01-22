@@ -1,17 +1,45 @@
-# Steam-Vault---Backup-e-Restauração-para-SteamTools
+# Steam Vault - Millennium Plugin
 
-Um programa em Python desenvolvido para realizar backups e restaurá-los posteriormente para quem utiliza o SteamTools.
+Backup e Restauração de dados do SteamTools (userdata, configs, stats, DLLs).
 
-Atualmente, ele salva as pastas:
+## Instalação
 
-depotcache (arquivos .manifest)
+1. Baixe a última release (`.zip`)
+2. Extraia na pasta de plugins do Millennium:
+   - **Windows:** `C:\Program Files (x86)\Steam\plugins\steamvault`
+   - **Linux:** `~/.local/share/millennium/plugins/steamvault`
+3. Reinicie a Steam
 
-stplug-in (arquivos .lua)
+## Uso
 
-appcache\stats (Basicamente conquistas)
+- Abra qualquer página web da Steam (Store, Community, etc)
+- Pressione **Ctrl+Shift+V** para abrir o modal de backup/restore
 
-userdata (Tempo de jogo, Screenshots e possíveis saves)
+## Estrutura
 
-Este programa foi feito por uma pessoa que ainda está aprendendo a programar, então podem existir bugs.
+```
+steamvault/
+├── backend/
+│   └── main.py         # Lógica de backup/restore (Python)
+├── public/
+│   └── steamvault.js   # Interface do usuário (JavaScript)
+├── plugin.json         # Configuração do plugin
+└── package.json        # Metadados
+```
 
-Estou planejando fazer uma versão integrada ao Millennium; aí o backup e a restauração seriam feitos diretamente de dentro da Steam.
+## O que é salvo no backup?
+
+- `userdata/` - Saves, screenshots, configurações de jogos
+- `config/stplug-in/` - Configurações de plugins
+- `config/depotcache/` - Cache de depots
+- `appcache/stats/` - Estatísticas
+- `version.dll` e `winmm.dll` - DLLs do SteamTools (Windows)
+
+## Requisitos
+
+- [Millennium](https://steambrew.app) v2.30+
+- Steam instalada
+
+## Licença
+
+MIT
