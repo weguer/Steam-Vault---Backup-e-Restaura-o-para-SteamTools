@@ -6,7 +6,20 @@ import subprocess
 import argparse
 import time
 
-# Tenta importar PyQt6 para modo Gráfico
+# --- AUTO-INSTALAÇÃO DE DEPENDÊNCIAS ---
+def install_package(package):
+    """Instala um pacote pip automaticamente."""
+    print(f"[SETUP] A biblioteca '{package}' não foi encontrada.")
+    print(f"[SETUP] Instalando {package} automaticamente, aguarde...")
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+        print(f"[SETUP] {package} instalado com sucesso!")
+        return True
+    except Exception as e:
+        print(f"[ERRO] Falha ao instalar {package}: {e}")
+        return False
+
+# Tenta importar PyQt6 para modo Gráfico (Com Auto-Install)
 try:
     from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                                  QHBoxLayout, QLabel, QPushButton, QFileDialog, 
@@ -15,7 +28,20 @@ try:
     from PyQt6.QtGui import QCursor, QIcon
     GUI_AVAILABLE = True
 except ImportError:
-    GUI_AVAILABLE = False
+    # Se falhar, tenta instalar e importa de novo
+    if install_package("PyQt6"):
+        try:
+            from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
+                                         QHBoxLayout, QLabel, QPushButton, QFileDialog, 
+                                         QProgressBar, QFrame, QMessageBox, QTextEdit)
+            from PyQt6.QtCore import Qt, QThread, pyqtSignal, QPoint
+            from PyQt6.QtGui import QCursor, QIcon
+            GUI_AVAILABLE = True
+        except ImportError:
+            print("[ERRO] Instalação falhou ou biblioteca ainda inacessível.")
+            GUI_AVAILABLE = False
+    else:
+        GUI_AVAILABLE = False
 
 # --- CONFIGURAÇÕES DE TEMA (MIDNIGHT PRO) ---
 THEME = {
