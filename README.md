@@ -54,7 +54,7 @@ Se não quiser utilizar o Google Drive integrado, pode montar o Google Drive com
 ## 🔧 Instalação
 
 ```bash
-python Steam.vault.v0.3.py
+python Steam.vault.v0.2.py
 ```
 
 ## 📄 Licença
